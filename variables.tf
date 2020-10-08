@@ -65,6 +65,12 @@ variable "lambda_builder_timeout" {
   default     = 900
 }
 
+variable "lambda_builder_environment" {
+  description = "Map of environment variables to use in the lambda builder environment, which are available in build.sh"
+  type        = map(string)
+  default     = {}
+}
+
 variable "role_cloudwatch_logs" {
   description = "If `role` is not provided, one will be created with a policy that enables CloudWatch Logs."
   type        = bool

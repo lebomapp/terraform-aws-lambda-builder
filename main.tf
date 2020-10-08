@@ -102,6 +102,7 @@ locals {
     lambda_builder_handler     = "index.handler"
     lambda_builder_memory_size = var.lambda_builder_memory_size
     lambda_builder_timeout     = var.lambda_builder_timeout
+    lambda_builder_environment = { Variables = var.lambda_builder_environment }
     lambda_runtime             = var.runtime
   }) : null
   cloudformation_template_body = coalesce(local.codebuild_cloudformation_template_body, local.lambda_cloudformation_template_body, "unused")
