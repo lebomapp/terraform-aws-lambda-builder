@@ -5,7 +5,7 @@
 data "external" "validate" {
   count = var.enabled ? 1 : 0
 
-  program = ["python", "${path.module}/validate.py"]
+  program = ["python3", "${path.module}/validate.py"]
   query = {
     build_mode        = var.build_mode
     filename          = var.filename != null ? var.filename : ""
