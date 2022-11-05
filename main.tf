@@ -36,7 +36,7 @@ data "aws_region" "current" {
 }
 
 module "source_zip_file" {
-  source = "github.com/raymondbutcher/terraform-archive-stable?ref=v0.0.4"
+  source = "github.com/playlebo/terraform-archive-stable"
 
   enabled = var.enabled && var.build_mode != "DISABLED"
 
