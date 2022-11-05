@@ -92,6 +92,8 @@ locals {
   lambda_builder_filenames = {
     "nodejs10.x" = "nodejs.js"
     "nodejs12.x" = "nodejs.js"
+    "nodejs14.x" = "nodejs.js"
+    "nodejs16.x" = "nodejs.js"
     "python2.7"  = "python.py"
     "python3.6"  = "python.py"
     "python3.7"  = "python.py"
