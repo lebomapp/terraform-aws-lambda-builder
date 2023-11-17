@@ -80,6 +80,8 @@ Resources:
         ZipFile: ${jsonencode(lambda_builder_code)}
       Role: !GetAtt LambdaRole.Arn
       Environment: ${jsonencode(lambda_builder_environment)}
+      LoggingConfig:
+        LogGroup: !Sub "/aws/lambda/builder-$${KeyPrefix}"
 
   LambdaPackage:
     Type: Custom::LambdaPackage
