@@ -74,6 +74,8 @@ Resources:
       MemorySize: ${jsonencode(lambda_builder_memory_size)}
       Runtime: ${jsonencode(lambda_runtime)}
       Timeout: ${jsonencode(lambda_builder_timeout)}
+      EphemeralStorage:
+        Size: 1024
       Code:
         ZipFile: ${jsonencode(lambda_builder_code)}
       Role: !GetAtt LambdaRole.Arn
