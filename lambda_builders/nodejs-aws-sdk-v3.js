@@ -72,10 +72,11 @@ async function createZip(event) {
   const obj = await s3.send(
     new GetObjectCommand({ Bucket: bucket, Key: keySource })
   );
+  const body = await obj.Body.transformToByteArray();
   await new Promise((resolve) => {
     const s = fs.createWriteStream(downloadPath);
     s.on("finish", resolve);
-    s.write(obj.Body);
+    s.write(body);
     s.end();
   });
 
