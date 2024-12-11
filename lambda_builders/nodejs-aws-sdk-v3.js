@@ -9,6 +9,7 @@ const {
   S3Client,
   GetObjectCommand,
   DeleteObjectCommand,
+  PutObjectCommand,
 } = require("@aws-sdk/client-s3");
 const s3 = new S3Client();
 
@@ -114,13 +115,13 @@ async function createZip(event) {
   });
 
   console.log(`Uploading zip to s3://${bucket}/${keyTarget}`);
-  await s3
-    .putObject({
+  await s3.send(
+    new PutObjectCommand({
       Bucket: bucket,
       Key: keyTarget,
       Body: fs.createReadStream(builtPath),
     })
-    .promise();
+  );
 }
 
 async function deleteZip(resourceId) {
