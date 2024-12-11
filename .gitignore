@@ -5,3 +5,4 @@ __pycache__
 *.zip
 tests/changes/src/*.json
 tests/filename/src/*.json
+node_modules
