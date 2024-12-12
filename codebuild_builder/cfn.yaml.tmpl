@@ -145,6 +145,8 @@ Resources:
       Code:
         ZipFile: ${jsonencode(lambda_builder_code)}
       Role: !GetAtt LambdaRole.Arn
+      EphemeralStorage:
+        Size: 1024
   LambdaPackage:
     Type: Custom::LambdaPackage
     Properties:
